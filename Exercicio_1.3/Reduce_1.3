@@ -1,28 +1,33 @@
+# reducer
+
 #!/usr/bin/python3
 
-
-#!/usr/bin/python3
 import sys
 
-#salesTotal = 0
+salesTotal = 0
 oldKey = None
-mayor = 0
+maior = 0
+
 
 for line in sys.stdin:
     data_mapped = line.strip().split("\t")
     if len(data_mapped) != 2:
-        # Something has gone wrong. Skip this line.
+        # Algo ha ido mal. Omita esta línea.
         continue
 
     thisKey, thisSale = data_mapped
+
+    # Escribe un par key:value ante un cambio na key
+    # Reinicia o total
     if oldKey and oldKey != thisKey:
-        print(oldKey, "\t", salesTotal)
-        oldKey = thisKey   #sobra?? 
-        #salesTotal = 0
+        print(oldKey, "\t", maior)
+        oldKey = thisKey;  # creo que sobra esta liña
+        salesTotal = 0
 
     oldKey = thisKey
-    if thisSale > mayor:
-        mayor = ThisSale
+    if salesTotal > maior:
+        maior = salesTotal
 
+# Escribe o último par, unha vez rematado o bucle
 if oldKey != None:
-    print(oldKey, "\t", mayor)
+    print(oldKey, "\t", maior)
